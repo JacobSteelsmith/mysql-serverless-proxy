@@ -1,6 +1,6 @@
 # MySQL-to-RDS Data API Translation Proxy
 
-A local proxy server that translates MySQL protocol connections into AWS RDS Data API calls, enabling standard MySQL clients (like MySQL Workbench) and applications (like Lucee) to connect to serverless RDS clusters that only expose the Data API interface.
+A local proxy server that translates MySQL protocol connections into AWS RDS Data API calls, enabling standard MySQL clients (like MySQL Workbench) and applications (like Lucee) to connect to serverless RDS clusters that only expose the Data API interface. I used Kiro's spec-driven development to create this. 
 
 ## Features
 
