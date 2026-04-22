@@ -1,0 +1,36 @@
+# MySQL-to-RDS Data API Proxy Configuration
+# Copy this file to mysql-rds-proxy.yaml and customize as needed
+
+proxy:
+  # Local port to listen on for MySQL connections
+  listen_port: 3306
+  # Host address to bind to (127.0.0.1 for localhost only, 0.0.0.0 for all interfaces)
+  listen_host: "127.0.0.1"
+
+aws:
+  # AWS region where your RDS cluster is located
+  region: "us-west-2"
+  
+  # RDS cluster ARN (Amazon Resource Name)
+  cluster_arn: "arn:aws:rds:us-west-2:XXXX:cluster:XXXX"
+  
+  # AWS Secrets Manager secret ARN for database credentials
+  secret_arn: "arn:aws:secretsmanager:us-west-2:XXXX:secret:XXXX"
+
+# Schema name mappings: local_name -> remote_name
+# Queries using local_name will be automatically translated to use remote_name
+schema_mappings:
+  mydb: "mydb_jacobs"
+  test: "test_jacobs"
+  # Add more mappings as needed
+  # local_schema: "remote_schema"
+
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # Log format (Python logging format string)
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Optional: Log file path (if not specified, logs to console only)
+  # file: "mysql-rds-proxy.log"
